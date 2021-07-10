@@ -60,3 +60,4 @@ Function Update-Wallpaper {
             Write-Warning -Message "Wallpaper not changed because $($_.Exception.Message)"
         }
     [Wallpaper.Setter]::SetWallpaper( $Path, $Style )
+}
