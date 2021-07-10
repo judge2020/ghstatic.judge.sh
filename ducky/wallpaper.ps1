@@ -1,12 +1,14 @@
 Function Update-Wallpaper {
     Param(
         [Parameter(Mandatory=$true)]
-        $Path,
+        $UrlPath,
 
         [ValidateSet('Center','Stretch','Fill','Tile','Fit')]
         $Style
     )
     Try {
+        $Path = "$Env:Temp\b.jpg";
+        (new-object System.Net.WebClient).DownloadFile($UrlPath,$Path);
         if (-not ([System.Management.Automation.PSTypeName]'Wallpaper.Setter').Type) {
             Add-Type -TypeDefinition @"
             using System;
