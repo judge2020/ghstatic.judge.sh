@@ -7,7 +7,7 @@ Function Update-Wallpaper {
         $Style
     )
     Try {
-        $Path = "$Env:Temp\b.jpg";
+        $Path = "$Env:Temp\\b.jpg";
         (new-object System.Net.WebClient).DownloadFile($UrlPath,$Path);
         if (-not ([System.Management.Automation.PSTypeName]'Wallpaper.Setter').Type) {
             Add-Type -TypeDefinition @"
